@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios';
+import MainPage from './MainPage.jsx';
 
 function App() {
-    const [count, setCount] = useState(0);
+    /*
     const [array, setArray] = useState([]);
-
     const fetchAPI = async () => {
         const response = await axios.get("http://localhost:8080/api");
         setArray(response.data.fruits);
@@ -18,17 +16,17 @@ function App() {
     useEffect(() => {
         fetchAPI();
     }, []);
-
+    
+                {array.map((fruit, index) => (
+                    <div key={index}>
+                        <p>{fruit}</p>
+                        <br></br>
+                    </div>
+                ))}
+    */
     return (
-        <div>
-            {array.map((fruit, index) => (
-                <div key={index}>
-                    <p>{fruit}</p>
-                    <br></br>
-                </div>
-            ))}
-        </div>
-    )
+        <MainPage/>
+    );
 }
 
 export default App
