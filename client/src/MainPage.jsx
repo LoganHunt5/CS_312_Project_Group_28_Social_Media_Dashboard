@@ -38,23 +38,39 @@ function Header() {
         </div>
     );
 }
+function Grid() {
+    return (
+        <div className="container" id="gridContainer">
+            <div className="parent">
+                <div className="gridChild div1 "></div>
+                <div className="gridChild div2"></div>
+                <div className="gridChild div3">Subscribers: <p>+{divsData[0]}</p></div>
+                <div className="gridChild div4">Est. Revenue: <p> ${divsData[1]}</p></div>
+                <div className="gridChild div5"><LineGraph /></div>
+                <div className="gridChild div6"><YTP /></div>
+                <div className="gridChild div7">Click Through Rate<p>+{divsData[3]}%</p></div>
+                <div className="gridChild div8">Retention<p>{divsData[4]}%</p></div>
+            </div>
+        </div>
+    );
+}
 
 class YTP extends React.Component {
-  render() {
-    const opts = {
-      height: '100%',
-      width: '100%',
-      playerVars: {
-        autoplay: 0,
-      },
-    };
+    render() {
+        const opts = {
+            height: '100%',
+            width: '100%',
+            playerVars: {
+                autoplay: 0,
+            },
+        };
 
-    return <YouTube videoId="0BjlBnfHcHM" opts={opts} onReady={this._onReady} />;
-  }
+        return <YouTube videoId="0BjlBnfHcHM" opts={opts} onReady={this._onReady} />;
+    }
 
-  _onReady(event) {
-    event.target.pauseVideo();
-  }
+    _onReady(event) {
+        event.target.pauseVideo();
+    }
 }
 export const LineGraph = () => {
     const options = {
@@ -77,39 +93,24 @@ export const LineGraph = () => {
 
 function MainPage() {
     /*
-    const [analyticsData, setAnalyticsData] = useState(null);
-    useEffect(() => {
-        // Fetch data from the backend server
-        axios
-            .get("http://localhost:5000/api/youtube-analytics")
-            .then((response) => {
-                setAnalyticsData(response.data); // Store the response data in state
-            })
-            .catch((error) => {
-                setError("Failed to fetch data: " + error.message);
-            });
-        console.log(analyticsData);
-    }, []);
-
-    useEffect(() => {
-        fetchAPI();
-    }, []);
+        const [analyticsData, setAnalyticsData] = useState(null);
+        useEffect(() => {
+            // Fetch data from the backend server
+            axios
+                .get("http://localhost:5000/api/youtube-analytics")
+                .then((response) => {
+                    setAnalyticsData(response.data); // Store the response data in state
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+            console.log(analyticsData);
+        }, []);
     */
     return (
         <>
             <Header />
-            <div className="container" id="gridContainer">
-                <div className="parent">
-                    <div className="gridChild div1 "></div>
-                    <div className="gridChild div2"></div>
-                    <div className="gridChild div3">Subscribers: <p>+{divsData[0]}</p></div>
-                    <div className="gridChild div4">Est. Revenue: <p> ${divsData[1]}</p></div>
-                    <div className="gridChild div5"><LineGraph /></div>
-                    <div className="gridChild div6"><YTP/></div>
-                    <div className="gridChild div7">Click Through Rate<p>+{divsData[3]}%</p></div>
-                    <div className="gridChild div8">Retention<p>{divsData[4]}%</p></div>
-                </div>
-            </div>
+            <Grid />
         </>
     );
 }

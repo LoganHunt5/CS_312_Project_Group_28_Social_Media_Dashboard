@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
         "https://www.googleapis.com/auth/yt-analytics.readonly"];
 
     // Load client secrets from a local file.
-    fs.readFile("./SECRET_FILE.json", (err, content) => {
+    fs.readFile("SECRET_FILE.json", (err, content) => {
         if (err) {
             return console.log("Cannot load client secret file:", err);
         }
