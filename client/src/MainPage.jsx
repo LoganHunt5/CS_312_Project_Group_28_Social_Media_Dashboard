@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import './MainPage.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios';
 import chartjs from 'chartjs';
 import YouTube from 'react-youtube';
+import ytlogo from '/pics/ytlogo.png';
 
 import {Line} from "react-chartjs-2";
 import {
@@ -32,7 +32,8 @@ function Header() {
     return (
         <div className="headerbar">
             <div className="container" id="headercontainer">
-
+                <img src={ytlogo} alt="ytlogo"></img>
+                <h2>YouTube Analyzer</h2>
             </div>
         </div>
     );
@@ -99,7 +100,7 @@ function MainPage() {
             <Header />
             <div className="container" id="gridContainer">
                 <div className="parent">
-                    <div className="gridChild div1 ">YouTube</div>
+                    <div className="gridChild div1 "></div>
                     <div className="gridChild div2"></div>
                     <div className="gridChild div3">Subscribers: <p>+{divsData[0]}</p></div>
                     <div className="gridChild div4">Est. Revenue: <p> ${divsData[1]}</p></div>
